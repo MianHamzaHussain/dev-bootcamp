@@ -1,0 +1,16 @@
+{
+  "name": "devcamp-api",
+  "version": "1.0.0",
+  "description": "Dev boot camp",
+  "main": "server.js",
+  "type":"module",
+  "scripts": {
+    "dev": "nodemon --env-file=.env server.js "
+  },
+  "author": "mianhamza",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.11"
+  }
+}
