@@ -4,16 +4,17 @@ import {getCourses,
   addCourse,
   updateCourse,
   deleteCourse} from "../controllers/course.js"
+  import Course from '../models/Course.js';
+  import advanceResults from "../middlewares/advanceResults.js";
 
 const router = express.Router({ mergeParams: true });
 
-const advancedResults = require('../middleware/advancedResults');
 
 
 router
   .route('/')
   .get(
-    advancedResults(Course, {
+    advanceResults(Course, {
       path: 'bootcamp',
       select: 'name description'
     }),
@@ -27,4 +28,4 @@ router
   .put( updateCourse)
   .delete(deleteCourse);
 
-module.exports = router;
+export default router;
