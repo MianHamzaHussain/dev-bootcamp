@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "Dev boot camp",
   "main": "server.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "dev": "nodemon --env-file=.env server.js "
   },
   "author": "mianhamza",
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.4.0",
     "express": "^5.1.0",
+    "mongoose": "^8.19.4",
+    "node-geocoder": "^4.4.1",
     "nodemon": "^3.1.11"
   }
 }
