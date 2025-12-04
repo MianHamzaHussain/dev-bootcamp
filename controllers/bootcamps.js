@@ -204,4 +204,7 @@ const bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
   createBootcamp,
   updateBootcamp,
   deleteBootcamp,
+  getBootcampsInRadius,
+  bootcampPhotoUpload
+
 }

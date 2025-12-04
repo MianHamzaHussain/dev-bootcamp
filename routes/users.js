@@ -5,15 +5,15 @@ import {
   createUser,
   updateUser,
   deleteUser
-} from '../controllers/users';
+} from '../controllers/users.js';
 
-import User  from '../models/User'
+import User  from '../models/User.js'
 
  
 const router = express.Router({ mergeParams: true });
 
 import advancedResults from '../middlewares/advancedResults.js';
-import  { protect, authorize } from '../middleware/auth.js';
+import  { protect, authorize } from '../middlewares/auth.js';
 
 router.use(protect);
 router.use(authorize('admin'));
