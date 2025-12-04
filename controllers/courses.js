@@ -1,13 +1,15 @@
 import ErrorResponse from '../utils/errorResponse.js';
-import asyncHandler from '../middleware/async.js';
+import asyncHandler from '../middlewares/asyncHandler.js';
 import Bootcamp from '../models/Bootcamp.js';
 import Course from '../models/Course.js';
+
+
 
 // @desc      Get courses
 // @route     GET /api/v1/courses
 // @route     GET /api/v1/bootcamps/:bootcampId/courses
 // @access    Public
-exports.getCourses = asyncHandler(async (req, res, next) => {
+const getCourses = asyncHandler(async (req, res, next) => {
   if (req.params.bootcampId) {
     const courses = await Course.find({ bootcamp: req.params.bootcampId });
 
@@ -24,7 +26,7 @@ exports.getCourses = asyncHandler(async (req, res, next) => {
 // @desc      Get single course
 // @route     GET /api/v1/courses/:id
 // @access    Public
-exports.getCourse = asyncHandler(async (req, res, next) => {
+const getCourse = asyncHandler(async (req, res, next) => {
   const course = await Course.findById(req.params.id).populate({
     path: 'bootcamp',
     select: 'name description'
@@ -46,7 +48,7 @@ exports.getCourse = asyncHandler(async (req, res, next) => {
 // @desc      Add course
 // @route     POST /api/v1/bootcamps/:bootcampId/courses
 // @access    Private
-exports.addCourse = asyncHandler(async (req, res, next) => {
+const addCourse = asyncHandler(async (req, res, next) => {
   req.body.bootcamp = req.params.bootcampId;
   req.body.user = req.user.id;
 
@@ -80,7 +82,7 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
 // @desc      Update course
 // @route     PUT /api/v1/courses/:id
 // @access    Private
-exports.updateCourse = asyncHandler(async (req, res, next) => {
+const updateCourse = asyncHandler(async (req, res, next) => {
   let course = await Course.findById(req.params.id);
 
   if (!course) {
@@ -114,7 +116,7 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
 // @desc      Delete course
 // @route     DELETE /api/v1/courses/:id
 // @access    Private
-exports.deleteCourse = asyncHandler(async (req, res, next) => {
+const deleteCourse = asyncHandler(async (req, res, next) => {
   const course = await Course.findById(req.params.id);
 
   if (!course) {
@@ -141,3 +143,5 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
     data: {}
   });
 });
+
+export { getCourses, getCourse, addCourse, updateCourse, deleteCourse };
