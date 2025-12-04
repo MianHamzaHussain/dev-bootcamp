@@ -6,6 +6,8 @@ import {getCourses,
   deleteCourse} from "../controllers/courses.js"
   import Course from '../models/Course.js';
   import advancedResults from "../middlewares/advancedResults.js";
+  import  { protect, authorize } from "../middlewares/auth.js";
+
 
 const router = express.Router({ mergeParams: true });
 

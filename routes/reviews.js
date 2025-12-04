@@ -5,11 +5,11 @@ import {
   addReview,
   updateReview,
   deleteReview
-} from'../controllers/reviews'
+} from'../controllers/reviews.js'
 
 import Review from '../models/Review.js'
 import advancedResults from '../middlewares/advancedResults.js';
-import  { protect, authorize } from '../middleware/auth.js';
+import  { protect, authorize } from '../middlewares/auth.js';
 
 const router = express.Router({ mergeParams: true });
 

@@ -120,3 +120,5 @@ const deleteReview = asyncHandler(async (req, res, next) => {
     data: {}
   });
 });
+
+export { getReviews, getReview, addReview, updateReview, deleteReview }

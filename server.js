@@ -11,7 +11,8 @@ import helmet from "helmet"
 import rateLimit from "express-rate-limit";
 import hpp from "hpp";
 import cors from "cors";
-import xss from "express-xss-sanitizer"
+import { xss } from "express-xss-sanitizer"
+import cookieParser from "cookie-parser"
 
 // Route files
 import bootcamps from './routes/bootcamps.js';
@@ -46,7 +47,7 @@ app.use(cookieParser());
 
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
-  app.use(logger());
+  app.use(logger);
 }
 
 // File uploading
