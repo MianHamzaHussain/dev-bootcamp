@@ -13,6 +13,9 @@ import hpp from "hpp";
 import cors from "cors";
 import { xss } from "express-xss-sanitizer"
 import cookieParser from "cookie-parser"
+import swaggerUi from "swagger-ui-express";
+
+
 
 // Route files
 import bootcamps from './routes/bootcamps.js';
@@ -20,9 +23,7 @@ import courses from './routes/courses.js';
 import auth from './routes/auth.js';
 import users from './routes/users.js';
 import reviews from './routes/reviews.js';
-
-
-
+import swaggerSpec from "./config/swagger.js";
 
 
 const fileUrl=url.fileURLToPath(import.meta.url)
@@ -30,17 +31,17 @@ const fileUrl=url.fileURLToPath(import.meta.url)
 const dirName=path.dirname(fileUrl)
 
 
+
 // Connect to database
 connectDB();
-
-
-
-
 
 const app = express();
 
 // Body parser
 app.use(express.json());
+
+// Swagger UI - Must be before security middleware that alters the request object
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Cookie parser
 app.use(cookieParser());
