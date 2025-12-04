@@ -3,7 +3,7 @@ import {getCourses,
   getCourse,
   addCourse,
   updateCourse,
-  deleteCourse} from "../controllers/course.js"
+  deleteCourse} from "../controllers/courses.js"
   import Course from '../models/Course.js';
   import advancedResults from "../middlewares/advancedResults.js";
 

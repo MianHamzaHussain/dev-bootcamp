@@ -16,12 +16,14 @@ import Bootcamp from '../models/Bootcamp.js';
 import courseRouter from './courses.js';
 import reviewRouter from './reviews.js';
 
+import advancedResults from '../middlewares/advancedResults.js';
+import  { protect, authorize } from '../middlewares/auth.js';
+
 
 const router = express.Router();
 
-const advancedResults = require('../middleware/advancedResults');
-const { protect, authorize } = require('../middleware/auth');
-const express = require('express');
+
+
 
 // Re-route into other resource routers
 router.use('/:bootcampId/courses', courseRouter);
