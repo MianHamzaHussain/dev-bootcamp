@@ -152,8 +152,20 @@ router
  *     responses:
  *       200:
  *         description: Successful response with review data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Review'
  *       404:
  *         description: Review not found.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Review not found with id of 603fe2a2cde5574e681322a3
  *   put:
  *     summary: Update a review
  *     description: Updates a review. Requires ownership or admin role.
@@ -182,6 +194,10 @@ router
  *     responses:
  *       200:
  *         description: Review updated successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Review'
  *       401:
  *         description: Not authorized to update this review.
  *       404:

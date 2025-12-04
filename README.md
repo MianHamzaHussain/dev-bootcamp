@@ -7,6 +7,7 @@ This is the backend REST API for the DevCamp application, a directory for coding
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [API Documentation](#api-documentation)
 - [Environment Variables](#environment-variables)
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
@@ -55,6 +56,13 @@ This is the backend REST API for the DevCamp application, a directory for coding
     ```
     *Note: The seeder script logic is inferred and may need to be created if it doesn't exist.*
 
+## API Documentation
+
+This project uses Swagger for interactive API documentation. Once the server is running, you can access the documentation at:
+
+**http://localhost:5000/api-docs**
+
+
 ## Environment Variables
 
 Create a file named `config.env` inside a `config` directory and add the following variables.
@@ -86,6 +94,12 @@ SMTP_EMAIL=<YOUR_SMTP_EMAIL>
 SMTP_PASSWORD=<YOUR_SMTP_PASSWORD>
 FROM_EMAIL=noreply@devcamper.io
 FROM_NAME=DevCamper
+
+# Swagger API Documentation
+API_VERSION=1.0.0
+CONTACT_NAME=DevCamper Support
+CONTACT_EMAIL=support@devcamper.io
+SERVER_URI=http://localhost:5000
 ```
 
 ## Running the Application

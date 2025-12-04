@@ -68,6 +68,32 @@ const router = express.Router({ mergeParams: true });
  *                   type: array
  *                   items:
  *                     $ref: '#/components/schemas/Course'
+ * /bootcamps/{bootcampId}/courses:
+ *   get:
+ *     summary: Get all courses for a specific bootcamp
+ *     description: Retrieves a list of all courses for a single bootcamp.
+ *     tags: [Courses]
+ *     parameters:
+ *       - in: path
+ *         name: bootcampId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the bootcamp.
+ *     responses:
+ *       200:
+ *         description: A list of courses for the specified bootcamp.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Course'
  */
 
 router
