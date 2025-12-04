@@ -3,6 +3,8 @@ import asyncHandler from '../middlewares/asyncHandler.js';
 import Bootcamp from '../models/Bootcamp.js';
 import Course from '../models/Course.js';
 
+
+
 // @desc      Get courses
 // @route     GET /api/v1/courses
 // @route     GET /api/v1/bootcamps/:bootcampId/courses

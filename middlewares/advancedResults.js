@@ -1,4 +1,4 @@
-const advanceResults=(model,populate)=>async(req,res,next)=>{
+const advancedResults=(model,populate)=>async(req,res,next)=>{
 {
    let query
    // coopying query
@@ -76,4 +76,4 @@ const advanceResults=(model,populate)=>async(req,res,next)=>{
 
 }
 
-export default advanceResults;
+export default advancedResults;

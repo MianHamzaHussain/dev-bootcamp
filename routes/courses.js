@@ -5,7 +5,7 @@ import {getCourses,
   updateCourse,
   deleteCourse} from "../controllers/course.js"
   import Course from '../models/Course.js';
-  import advanceResults from "../middlewares/advanceResults.js";
+  import advancedResults from "../middlewares/advancedResults.js";
 
 const router = express.Router({ mergeParams: true });
 
@@ -14,18 +14,18 @@ const router = express.Router({ mergeParams: true });
 router
   .route('/')
   .get(
-    advanceResults(Course, {
+    advancedResults(Course, {
       path: 'bootcamp',
       select: 'name description'
     }),
     getCourses
   )
-  .post(addCourse);
+  .post(protect, authorize('publisher', 'admin'), addCourse);
 
 router
   .route('/:id')
   .get(getCourse)
-  .put( updateCourse)
-  .delete(deleteCourse);
+  .put(protect, authorize('publisher', 'admin'), updateCourse)
+  .delete(protect, authorize('publisher', 'admin'), deleteCourse);
 
 export default router;
