@@ -30,7 +30,7 @@ This is the backend REST API for the DevCamp application, a directory for coding
 
 1.  Clone the repository:
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/MianHamzaHussain/dev-bootcamp
     cd devcamp-api
     ```
 
